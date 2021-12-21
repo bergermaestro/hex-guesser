@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import BottomLinks from './components/BottomLinks';
+import NavBar from './components/NavBar';
+import TopAlert from './components/TopAlert';
+import Game from './components/Game';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    <div className="bg-neutral-900 min-h-screen">
+      <TopAlert />
+      <div className="max-w-screen-xl mx-auto flex flex-col place-content-between min-h-screen my-[-4rem] pt-24">
+        <NavBar />
 
-export default App;
+        <Game/>
+
+        <BottomLinks/>
+      </div>
+
+    </div>
+    );
+
+    // Add Score
+    const addScoreEvent = (id) => {
+      console.log('score added', id)
+    }
+  }
+  
+  export default App;
+  
