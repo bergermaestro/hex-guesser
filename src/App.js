@@ -4,7 +4,7 @@ import TopAlert from './components/TopAlert';
 import Game from './components/Game';
 import { useState } from 'react';
 import GameOver from './components/GameOver';
-import Settings from './components/Settings';
+// import Settings from './components/Settings';
 
 function App() {
 
@@ -15,7 +15,7 @@ function App() {
   const [currentColor, setCurrentColor] = useState("#aabbcc")
   const [guesses, setGuesses] = useState([])
   const [gameOver, setGameOver] = useState(false)
-  const [settings, showSettings] = useState(false)
+  //const [settings, showSettings] = useState(false)
 
   const nextRound = () => {
 
@@ -64,7 +64,7 @@ function App() {
   return (
     <div className="bg-neutral-900 min-h-screen">
 
-      {settings ? <Settings/> : null}
+      {/* {settings ? <Settings/> : null} */}
 
       
       <TopAlert />

@@ -21,4 +21,4 @@ function Game({round, color, currentColor, setCurrentColor, nextRound}) {
         );
     }
     
-    export default Game;
+    export default Game
