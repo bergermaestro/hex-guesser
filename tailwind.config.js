@@ -28,6 +28,9 @@ module.exports = {
           '"Segoe UI Symbol"',
           '"Noto Color Emoji"',
         ],
+      },
+      slashedZero: {
+        'font-variant-numeric': 'slashed-zero',
       }
     },
   },

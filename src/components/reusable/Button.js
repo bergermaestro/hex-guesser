@@ -1,11 +1,9 @@
 import PropTypes from 'prop-types';
 
-const Button = ({onClick}) => {
-
-    let text = "Submit";
+const Button = ({onClick, label}) => {
 
     return (
-            <button onClick={() => onClick} className="py-4 px-16 text-neutral-900 bg-white rounded-lg text-xl hover:bg-pink-200 transition-all">{text}</button>
+            <button onClick={onClick} className="py-4 px-16 text-neutral-900 bg-white rounded-lg text-xl hover:bg-pink-200 transition-all">{label}</button>
 
     )
 }
