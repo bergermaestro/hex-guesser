@@ -8,8 +8,8 @@ const Button = ({onClick, label}) => {
     )
 }
 
-Button.propTypes = {
-    onClick: PropTypes.func
-}
+// Button.propTypes = {
+//     onClick: PropTypes.func
+// }
 
 export default Button;

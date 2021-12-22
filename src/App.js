@@ -4,6 +4,7 @@ import TopAlert from './components/TopAlert';
 import Game from './components/Game';
 import { useState } from 'react';
 import GameOver from './components/GameOver';
+import Settings from './components/Settings';
 
 function App() {
 
@@ -12,8 +13,9 @@ function App() {
   const [round, setRound] = useState(1)
   const [color, setColor] = useState(rgbToHex(getColor(), getColor(), getColor()).toUpperCase())
   const [currentColor, setCurrentColor] = useState("#aabbcc")
-  const [guesses, setGuesses] = useState([{}])
+  const [guesses, setGuesses] = useState([])
   const [gameOver, setGameOver] = useState(false)
+  const [settings, showSettings] = useState(false)
 
   const nextRound = () => {
 
@@ -21,32 +23,32 @@ function App() {
 
         var similarityScore = calculateDistance(currentColor, color)
 
-        setGuesses([...guesses, {similarityScore:similarityScore, currentColor:currentColor, goalColor:color, id:round} ])
-
         console.log("Round " + round + " SimilarityScore: " + similarityScore)
         console.log(guesses)
         console.log("GameOver: " + gameOver)
 
-          setRound(round + 1)
-          setColor(rgbToHex(getColor(), getColor(), getColor()).toUpperCase())
-          //console.log(rgbToHex(getColor(), getColor(), getColor()))
-          //console.log("CurrentColorRGB: " + hexToRgb(currentColor))
-          //console.log("GoalColorRGB: " + hexToRgb(color))
+        setGuesses([...guesses, {similarityScore:similarityScore, currentColor:currentColor, goalColor:color, id:round} ])
 
-          // if (similarityScore < maxRounds) {
-          //     console.log(" I think you're cheating");
-          //   } else if (similarityScore < 50) {
-          //         console.log("Perfect Choice")
-          //   } else if (similarityScore < 100) {
-          //         console.log("Very Close")
-          //   } else if (similarityScore < 250) {
-          //         console.log("Good enough")
-          //   } else {
-          //       console.log("It needs work")
-          //   }
+        setRound(round + 1)
+        setColor(rgbToHex(getColor(), getColor(), getColor()).toUpperCase())
+        //console.log(rgbToHex(getColor(), getColor(), getColor()))
+        //console.log("CurrentColorRGB: " + hexToRgb(currentColor))
+        //console.log("GoalColorRGB: " + hexToRgb(color))
+
+        // if (similarityScore < maxRounds) {
+        //     console.log(" I think you're cheating");
+        //   } else if (similarityScore < 50) {
+        //         console.log("Perfect Choice")
+        //   } else if (similarityScore < 100) {
+        //         console.log("Very Close")
+        //   } else if (similarityScore < 250) {
+        //         console.log("Good enough")
+        //   } else {
+        //       console.log("It needs work")
+        //   }
       }
 
-      if (round === 4) {
+      if (round === maxRounds) {
           //alert("Game Over")
           //setGameOver(true)
           console.log("condition checked")
@@ -61,9 +63,14 @@ function App() {
 
   return (
     <div className="bg-neutral-900 min-h-screen">
+
+      {settings ? <Settings/> : null}
+
+      
       <TopAlert />
       <div className="max-w-screen-xl mx-auto flex flex-col place-content-between min-h-screen my-[-4rem] pt-24">
-        <NavBar />
+        {/* <NavBar onClick={console.log("clicked")}/> */}
+        <NavBar/>
 
         {/* <Game round={round} color={color} currentColor={currentColor} setCurrentColor={setCurrentColor} nextRound={nextRound}/>
         <GameOver roundCount={maxRounds} rounds={guesses}/> */}

@@ -1,6 +1,6 @@
 import logo from "../images/logo.svg";
 
-function NavBar() {
+function NavBar({toggleSettings}) {
   return (
       <div className="text-white flex flex-row px-32 py-4 place-content-between">
         <a href="." className="flex items-center space-x-4">
@@ -9,8 +9,8 @@ function NavBar() {
         </a>
 
           <ul className="flex flex-row px-4 space-x-6 py-2 items-center">
-            <li>leaderboard</li>
-            <li>settings</li>
+            {/* <li>leaderboard</li> */}
+            <li><button onClick={toggleSettings}>settings</button></li>
           </ul>
       </div>
     );
