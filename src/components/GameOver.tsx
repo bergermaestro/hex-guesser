@@ -15,18 +15,23 @@ interface GameOverProps {
 }
 
 function GameOver({
-  roundCount: _roundCount,
+  roundCount,
   rounds,
   onRestart,
   gameOver: _gameOver,
 }: GameOverProps) {
   let totalScore = 0;
-  for (let i = 0; i < rounds.length - 1; i++) {
+  // Fix: Include all rounds by using rounds.length instead of rounds.length - 1
+  for (let i = 0; i < rounds.length; i++) {
     totalScore += rounds[i].similarityScore;
     console.log(rounds[i].similarityScore);
   }
-  const percentageScore = (totalScore / 1000) * 100 + "%";
+
+  // Fix: Calculate maximum score based on actual number of rounds (each round max 100 points)
+  const maxPossibleScore = roundCount * 100;
+  const percentageScore = (totalScore / maxPossibleScore) * 100 + "%";
   console.log("Total Score: " + totalScore);
+  console.log("Max Possible Score: " + maxPossibleScore);
   console.log("Percentage Score: " + percentageScore);
 
   return (
@@ -59,7 +64,7 @@ function GameOver({
         ))}
 
         <h2 className="text-lg pt-5 text-left">
-          your final score: {totalScore}/1000
+          your final score: {totalScore}/{maxPossibleScore}
         </h2>
         {/* <h2>PercentageScore: {percentageScore}</h2> */}
         {/* <progress value="200" max="450" className="m-6 w-full" ></progress> */}

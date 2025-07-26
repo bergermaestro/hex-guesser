@@ -59,7 +59,7 @@ function Settings({
               id="rounds-select"
               value={maxRounds}
               onChange={handleRoundsChange}
-              className="bg-neutral-700 border border-neutral-600 rounded px-3 py-2 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="bg-neutral-700 border border-neutral-600 rounded px-3 py-2 text-white focus:outline-none focus:ring-2 focus:ring-pink-300"
             >
               <option value={3}>3 Rounds</option>
               <option value={5}>5 Rounds</option>
