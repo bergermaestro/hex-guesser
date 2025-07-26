@@ -1,5 +1,4 @@
-import { GiReceiveMoney } from "react-icons/gi";
-import { BsGithub, BsTwitter, BsLinkedin } from "react-icons/bs";
+import { BsGithub, BsLinkedin } from "react-icons/bs";
 
 function BottomLinks() {
   return (
